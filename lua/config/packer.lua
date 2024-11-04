@@ -39,19 +39,25 @@ return require('packer').startup(
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
-    -- use { 'VonHeikemen/lsp-zero.nvim',
-      -- branch = 'v3.x',
-      -- requires = {
-      --   -- Manage LSP servers from neovim
-      --   {'williamboman/mason.nvim'},
-      --   {'williamboman/mason-lspconfig.nvim'},
-      --   -- LSP Support
-      --   {'neovim/nvim-lspconfig'},
-      --   -- Autocompletion
-      --   {'hrsh7th/nvim-cmp'},
-      --   {'hrsh7th/cmp-nvim-lsp'},
-      --   {'L3MON4D3/LuaSnip'},
-      -- }
-    -- }
+    use {
+      "stevearc/oil.nvim",
+      config = function()
+        require("oil").setup({
+          default_file_explorer = false,
+          columns = {
+            "icon",
+            "size"
+          }
+        })
+      end
+    }
+
+    use {
+      "echasnovski/mini.nvim",
+      config = function()
+        require("mini.icons").setup()
+      end
+    }
+
   end
 )

@@ -60,3 +60,33 @@ vim.keymap.set('n', '<leader>6', function() vim.opt.foldlevel = 6 end)
 vim.keymap.set('n', '<leader>7', function() vim.opt.foldlevel = 7 end)
 vim.keymap.set('n', '<leader>8', function() vim.opt.foldlevel = 8 end)
 vim.keymap.set('n', '<leader>9', function() vim.opt.foldlevel = 9 end)
+
+vim.keymap.set('n', '<leader>ee', vim.cmd.Explore)
+
+vim.keymap.set('n', '<leader>s', "<C-w>p")
+
+vim.keymap.set('n', '<leader>o', vim.cmd.Oil)
+
+-- Autocmd for opening files in the right pane and allowing folder navigation
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = "oil://*",
+--   callback = function()
+--     vim.keymap.set('n', '<CR>', function()
+--       local file = vim.fn.expand("<cfile>")
+--       if vim.fn.isdirectory(file) == 1 then
+--         vim.cmd("Oil " .. file)
+--       else
+--         vim.cmd('wincmd l')
+--         vim.cmd('edit ' .. file)
+--       end
+--     end, { buffer = true })
+--   end,
+-- })
+--
+-- Keymap to open Oil in the left pane
+-- vim.keymap.set('n', '<leader>fe', function()
+  -- Open Oil in a vertical split and resize it
+--  vim.cmd("vsp")
+--  vim.cmd("40wincmd |")
+--  vim.cmd("Oil")
+--end)
